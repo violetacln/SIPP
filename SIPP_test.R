@@ -32,8 +32,13 @@ plot3d(sm, "period")
 plot3d(sm, "residuals")
 plot3d(sm, "original", color.palette = rainbow)
 
-# same for males and for total
-#denote the smoothed rates:
+
+# same method is then applied for males and for total
+
+#denote the matrices of smoothed rates: --------------
+# matrix_sm_rate_total
+# matrix_sm_rate_females
+# matrix_sm_rate_males
 
 
 ### STEP 2: make a demogdata object for future modeling and forecasting -------------
