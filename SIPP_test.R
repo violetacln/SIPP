@@ -12,7 +12,10 @@ library(smoothAPC)
 # using functional models and Hyndman's packages
 
 
-# use here an example data from the package
+# use for now an example data from the package
+# will add: querying directly our web-data and creating the 
+# appropriate demogdata object which will be the input for this step
+
 m <- log(fr.mort$rate$female[1:30, 150:160])
 plot(m)
 plot3d(m)
