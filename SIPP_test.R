@@ -111,7 +111,7 @@ mfit <- coherentfdm(smdemog)
 
 
 # b) if we wish forecasting independently for males and females:
-mfits <- fdm(smdemog)
+#mfits <- fdm(smdemog)
 
 plot(residuals(mfit$product))
 plot(residuals(mfit$ratio$male))
@@ -124,7 +124,9 @@ plot(residuals(mfit$ratio$male))
 # STEP 4: forecasting ----------------------------------
 # apply the usual forecasting functions of the demography-package!
 
-mfor <- forecast(mfit, h=50) # other options, etc
+mfor <- forecast(mfits, h=50) # other options, etc
+plot(mfor)
+models(mfor)
 
 # and the usual graphics and results .... (to add)
 
