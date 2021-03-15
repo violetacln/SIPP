@@ -105,11 +105,6 @@ names(smdemog[["pop"]]) <- c("total","female", "male")
 
 ### STEP 3: fdm model fitting  ------------------------------------
 
-#******* smdemog does not seem to be of the right dimensions/structure
-# it claims that:
-# Series: total female male
-# Years: 1965 - 1975
-# Ages:  0 - 9  ************* ???
 
 # a) if we wish forecasting coherently (for males and females), use:
 mfit <- coherentfdm(smdemog)
