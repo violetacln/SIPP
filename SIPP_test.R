@@ -1,5 +1,5 @@
 
-# example of code: mortality data smoothing and forecasting ------------
+# example of old code: mortality data smoothing and forecasting ------------
 
 
 library(demography)
