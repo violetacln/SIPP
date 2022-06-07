@@ -130,7 +130,5 @@ models(mfor)
 
 # and the usual graphics and results .... (to add)
 
-
-
-#-------------- V2: using an ensemble of Bayesian models -----------------
+#-------------------------------------------------------------
 
