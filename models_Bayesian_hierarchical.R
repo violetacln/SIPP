@@ -2,7 +2,7 @@
 
 library(brms)
 
-################# M1. Models for counts and rates data ############################
+################# M1. Models for counts data ############################
 
 ### given: data frames (dbirths, ddeaths, dmigr) of counts of events (nr) and counts of exposed (nrExposed), 
 ### by municipality (svf), age (aldur), time (ar), gender (kyn) , type of migration (gerd)
@@ -10,25 +10,27 @@ library(brms)
 ## we use poisson models with offset terms---------
 ## brm(y ~ ... + offset(log(n)), family = poisson())
 
-## Note: testing: t2(ar, aldur) and t2(ar)+t2(aldur) ## **********************
+## simplest models. One may easily test better ones, by allowing more complex error structures, random slopes, interactions, etc.
 
-mb <- brms::brm(nr ~ t2(ar) + t2(aldur) + (1|svf) + citiz + offset(log(nrExposed)), 
-                family=poisson(), data= dbirths,
-                warmup = 500, iter = 2000, chains = 2, seed=123)
+## births: simplest model
+mb <- brms::brm(nr ~ t2(ar,aldur) 
+                # t2(ar) + t2(aldur)
+                + (1|svf) + citiz + offset(log(nrExposed)), 
+                  family=poisson(), data= dbirths,
+                  warmup = 500, iter = 2000, chains = 2, seed=123)
 
-# mb1 <- brms::brm(nr ~ t2(ar,aldur) + (1|svf) + citiz + offset(log(nrExposed)), 
-#                  family=poisson(), data= dbirths,
-#                  warmup = 500, iter = 2000, chains = 2, seed=123)
-
-
-md <- brms::brm(nr ~ t2(ar) + t2(aldur)
-                  # t2(ar, aldur) 
+# deaths
+md <- brms::brm(nr ~ 
+                 # t2(ar) + t2(aldur)
+                  t2(ar, aldur) 
                 + kyn + offset(log(nrExposed)),  
                 family=poisson(), data= ddeaths, 
                 warmup = 500, iter = 2000, chains = 2, seed=123)
 
-mm <- brms::brm(nr ~ t2(aldur) + t2(ar) 
-                # t2(ar, aldur)
+# migration (types are encoded by gerd)
+mm <- brms::brm(nr ~ 
+                # t2(aldur) + t2(ar) 
+                 t2(ar, aldur)
                 + kyn + gerd + citiz 
                  + (1|svf) 
                 + offset(log(nrExposed)) ,  
@@ -61,7 +63,9 @@ brms::bayes_R2(mm)
 
 ################# M2. Models for microdata #############################
 
-## given a data frame called micro, containing all microdata, with y, yd, y_immExt, y_em_ext, y_m_int:
+## simplest models. One may easily test better ones, by allowing more complex error structures, random slopes, interactions, etc.
+
+## given a data frame called: micro; containing all microdata, with y, yd, y_immExt, y_em_ext, y_m_int which are
 ## binary valued responses concerning
 ## births, deaths, immigration, emigration, internal migration
 ## other variables are:
