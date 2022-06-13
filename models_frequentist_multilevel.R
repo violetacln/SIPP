@@ -4,6 +4,8 @@
 
 ######### M1. Models for counts and rates #######################
 
+## simplest models. One may easily improve by testing models with random slopes, interactions, etc.
+
 ## given: data frames dbirths, ddeaths, dmigr
 
 library(lme4)
@@ -84,6 +86,9 @@ plot(xf)
 
 
 ######### M2. Models for microdata #############################
+
+
+## simplest models also here. One may easily improve by testing models with random slopes, interactions, etc.
 
 ## given a data frame called micro: all microdata, with y, yd, y_immExt, y_em_ext, y_m_int:
 ## binary valued responses concerning
