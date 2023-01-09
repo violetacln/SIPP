@@ -1,4 +1,4 @@
-## the Bayesian, hierarchical models with best performance----------
+## P1. the chosen Bayesian, hierarchical models with best performance----------
 
 ## births --------------------
 
@@ -6,8 +6,12 @@
 
 ## migration ------------------
 
-## stochastic ccmp (cohort component method for projecting the population numbers) ------------
+## P2. stochastic ccmp (cohort component method for projecting the population numbers) ------------
 
 ## summary results ------------------------
 
-## to be updated soon! --------------------
+## evaluation of models -------------------
+
+## evaluation of resulted population forecast -------------
+
+## to be updated soon! ---------***-----------
