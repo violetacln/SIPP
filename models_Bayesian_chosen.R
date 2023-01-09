@@ -10,8 +10,8 @@
 
 ## summary results ------------------------
 
-## evaluation of models -------------------
+## P3. evaluation of components' models -------------------
 
-## evaluation of resulted population forecast -------------
+## P4. evaluation of resulted population forecast -------------
 
 ## to be updated soon! ---------***-----------
