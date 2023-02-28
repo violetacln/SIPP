@@ -1,16 +1,16 @@
 
-# example of old code: mortality data smoothing and forecasting ------------
-
+##
+# example of older code: mortality data, smoothing and forecasting (same type of method was used for fertility in previous years) 
+# list of older methods for migration forecasts (based on ARDL and bsts models)
+##
 
 library(demography)
 library(smoothAPC)
 
+#---------------------- V1: functional models, see Hyndman's paper and R-packages ----------------------------------------
 
-#---------------------- V1: based on functional models----------------------------------------
-
+# example, mortality data
 # STEP 1: mortality smoothing
-# using functional models and Hyndman's packages
-
 
 # use for now an example data from the package
 # will add: querying directly our web-data and creating the 
