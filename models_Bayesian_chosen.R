@@ -49,7 +49,7 @@ mm_mgcv <- mgcv::bam( nr ~ 1 + s(aldur, ar)
                    , family= poisson(), data=traindata_1m)
 
 ## using brms ---
-mm_brms <- brms:brm(nr ~ 1 + s(aldur, ar) 
+mm_brms <- brms:brm(nr ~ 1 + t2(aldur, ar) 
                    + kyn*gerd*citiz*ar 
                    + offset(log_nrExposed)
                    , family= poisson(), data=traindata_1m, chains=4)
