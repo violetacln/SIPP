@@ -64,7 +64,8 @@ mm_brms <- brms:brm(nr ~ 1 + t2(aldur, ar)
 ## P4. evaluation of resulted population forecast (shorter time series) -------------
 
 ## P5. simple local projections (by municipality) as rates, Poisson modelled, 
-## with total population as offset and using Gaussian process priors for the time dependence functions of local population counts which vary by municipality
+## with total population as offset, at each time point 
+## and using Gaussian process priors for the time dependence functions of local population counts which vary by municipality and time
 
 ## using mgcv ---
 m_svf_mgcv <- mgcv::gam(nr ~  s(ar, by=svf, bs='gp' ) + s(svf, bs='re')
