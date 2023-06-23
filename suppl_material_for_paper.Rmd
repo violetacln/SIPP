@@ -1,0 +1,33 @@
+---
+title: "R Markdown Supplement for the methodology of population projections' paper "
+author: "Violeta Calian"
+date: "June 2023"
+output:
+  pdf_document: default
+  html_notebook: 
+    toc: yes
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+This is a markdown notebook which accompanies the paper on methodology of population projections.
+
+### Introductory
+
+### Fertility
+
+### Mortality
+
+### Migration
+
+### Stochastic cohort component method
+
+### Local projections
+
+### Evaluation
+
+### Conclusions
+
