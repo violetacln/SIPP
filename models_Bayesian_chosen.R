@@ -42,17 +42,31 @@ md_brms <- brms:brm(nr ~ 1 + gp(aldur, by=kyn)
 
 ## P1.3. migration ------------------
 
-## using mgcv ---
+## using mgcv, v1 ---
 mm_mgcv <- mgcv::bam( nr ~ 1 + s(aldur, ar) 
                    + kyn*gerd*citiz*ar 
                    + offset(log_nrExposed)
                    , family= poisson(), data=traindata_1m)
 
-## using brms ---
+## using mgcv, v2 ---
+mm_mgcv <- mgcv::bam( nr ~ 1 + s(aldur, bs='gp') + aldur + ar:aldur
+                   + kyn*gerd*citiz*ar 
+                   + offset(log_nrExposed)
+                   , family= poisson(), data=traindata_1m)
+
+
+## using brms, v1 ---
 mm_brms <- brms:brm(nr ~ 1 + t2(aldur, ar) 
                    + kyn*gerd*citiz*ar 
                    + offset(log_nrExposed)
                    , family= poisson(), data=traindata_1m, chains=4)
+
+## using brms, v2 ---
+mm_brms <- brms:brm(nr ~ 1 + gp(aldur) + aldur + ar:aldur
+                   + kyn*gerd*citiz*ar 
+                   + offset(log_nrExposed)
+                   , family= poisson(), data=traindata_1m, chains=4)
+
 
 
 ## P2. stochastic ccmp (stochastically combining paths from the demographic components projected using the models above) ------------
