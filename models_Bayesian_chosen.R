@@ -8,7 +8,7 @@
 ## Note: to be improved by using Markov random field terms for municipalities variables
 
 ### Notations----------
-### nr=counts, nrExposed=counts of exposed, aldur=age, ar=year, citiz=citizenship, kyn=gender, gerd=types of migration (emigration/immigration)
+### nr=counts, nrExposed=counts of exposed, aldur=age, ar=year, citiz=Place of Birth, kyn=gender, gerd=direction of migration (emigration/immigration)
 ###--------------------
 
 ## P1.1. births --------------------
@@ -70,8 +70,35 @@ mm_brms <- brms:brm(nr ~ 1 + gp(aldur) + aldur + ar:aldur
 
 
 ## P2. stochastic ccmp (stochastically combining paths from the demographic components projected using the models above) ------------
+## simple version, pseudo-code for the time being
+for (k in 1:N_paths){
+  while t0 <= t_initial+50) {
+        
+    ## exposed populations (or a sample if measurement errors are involved) for: births, deaths, migration ... by age, gender, other attributes
+
+    ## newdata frames for births, deaths, migration (same structures as "training data" frames above) ... by age, gender, other attributes
+
+    ## sample from posterior values for each of the above {model, newdata}  ...
+
+    ## build the needed counts (by the corresponding attributes) for each demographic process 
+
+    ## apply the usual cohort component method balance for these sampled values:
+                    ## population(t0+1) as function of population(t0), births, deaths, migration sampled above, by age, gender, the other attribute(s)
+                    ## ...
+
+    t0<-t0+1
+    }
+  ## append the new data frames (population, births, deaths, migration) with their simulation index "k", to the initial data frames ...
+  }
 
 ## summary results from P2 ------------------------
+## simple example: assume we have ended up with dpopT_sim data frame, which has the simulation index column K
+grouping_example <- dpopT_sim %>%
+                    dplyr::group_by(K, ar) %>%
+                    dplyr::summarise(nr=sum(nr)) %>%
+                    dplyr::group_by(ar) %>%
+                    dplyr::summarise(m=mean(nr), q50=quantile(nr, 0.50), q10=quantile(nr, 0.10), q90=quantile(nr, 0.90))
+
 
 ## P3. evaluation of components' models (standard procedures) -------------------
 
