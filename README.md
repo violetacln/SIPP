@@ -7,4 +7,4 @@ The [slides](https://github.com/violetacln/SIPP/tree/main/slides/SIPP_june2022.p
 
 A [Working Paper](http://hagstofan.s3.amazonaws.com/media/public/2023/79a217c5-f567-4ddb-bed7-45329a32d531.pdf), entitled "Methodology of population projections based on hierarchical Bayesian models" has been published in the Statistical Series of Statistics Iceland. Recent progress is described in the presentation for the [Nordic Demography Symposium 2025](https://github.com/violetacln/SIPP/blob/main/sipp_v2025_June.pdf).
 
-Newly added: [scripts](https://github.com/violetacln/SIPP/tree/main/R_NeuralNetworks_models) experimenting with Bayesian Regularized Neural Networks for fitting and forecasting all demographic components, with data and model uncertainty and then building stochastic projections.
+Newly added: [scripts](https://github.com/violetacln/SIPP/tree/main/R_neuralNetworks_models) experimenting with Bayesian Regularized Neural Networks for fitting and forecasting all demographic components, with data and model uncertainty and then building stochastic projections.
