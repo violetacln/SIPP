@@ -1,0 +1,1 @@
+Testing Bayesian Regularized Neural Networks models. Produce stochastic projections with uncertainty bounds and multiple scenarios. Query the input data directly from the web-site of Statistics Iceland.
