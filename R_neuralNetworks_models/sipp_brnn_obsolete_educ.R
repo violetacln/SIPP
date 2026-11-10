@@ -5,7 +5,7 @@
 ## including model and data uncertainty effects
 ## using simulated data
 
-### simplistic models here ----------
+### simplistic models here, only for educational purposes ----------
 
 ################################## Births ##########################################
 
