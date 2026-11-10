@@ -39,9 +39,6 @@ Y_LEN      <- length(PROJ_YEARS)
 S_sims <- 1000       # projection simulations
 B <-500             # Bootstrapping iterations for good uncertainty fanning: >= 500; 
 
-
-## Nneurons <- 2        # Lowest, to prevent extreme outliers but not so good results
-
 Nneurons <- 5
 Nneurons_mig <- 3  
 
@@ -51,8 +48,14 @@ damp_years_mig <- 15
 anchor_years_mig <- 9         
 anchor_years_births <- 5   
 
+## NOTE about why we need anchor and damping (not for mortality though, which is very stable and smooth):
+## To ensure structural stability over the 50-year forecasting horizon, the models incorporate specific anchoring and damping mechanisms. 
+## Anchoring gradually aligns the long-term stochastic projections with expert-derived equilibrium levels (such as a long-run total fertility rate trend), 
+## preventing unrealistic drift in the distant future. 
+## Simultaneously, damping techniques attenuate the influence of recent demographic shocks and autoregressive volatility, 
+## ensuring that short-term fluctuations do not compound exponentially over the course of the projection period.
 
-### here we build 60% and 80% intervals (since 90% too wide) -----------------
+###  we build 60% and 80% intervals  in this version -----------------
 
 # ---------------------------------------------------------
 # Define Scenario Configurations  
